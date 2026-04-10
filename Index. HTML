@@ -109,6 +109,6 @@
         <p class="toggle"><a href="#" onclick="closeProfile()">Close</a></p>
     </div>
 
-    <script src="Javascript.js"></script>
+    <script src="JavaScript.js"></script>
 </body>
 </html>
