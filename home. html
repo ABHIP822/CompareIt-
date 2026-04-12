@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CompareIt - Fast Food Search</title>
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">CompareIt</div>
+        <div class="icons">
+            <button id="settings-btn">⚙️</button>
+        </div>
+    </header>
+
+    <div class="search-container">
+        <input type="text" id="search-input" placeholder="Search products (e.g. Milk, Chips)...">
+    </div>
+
+    <div id="loading" class="hidden">Fetching more products...</div>
+
+    <h2 class="section-title" style="text-align: center; margin-top: 10px;">All Food Products</h2>
+    <p style="text-align: center; font-size: 12px; color: #666;">Select 2 products to compare</p>
+
+    <div id="product-list"></div>
+
+    <div id="scroll-anchor" style="height: 50px;"></div>
+
+    <div id="compare-section" class="hidden">
+        <div class="compare-header">
+            <h3>Comparison Details</h3>
+            <button id="close-compare">✖ Close</button>
+        </div>
+
+        <div class="compare-container">
+            <div id="compare1" class="compare-card"></div>
+            <div id="compare-vs">VS</div>
+            <div id="compare2" class="compare-card"></div>
+        </div>
+
+        <div id="full-details-area"></div>
+    </div>
+
+    <footer>
+        <p>CompareIt | Powered by <a href="https://world.openfoodfacts.org/" target="_blank" style="color:white;">Open Food Facts</a></p>
+    </footer>
+
+    <script src="home.js"></script>
+</body>
+</html>
