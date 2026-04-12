@@ -3,48 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile - CompareIt</title>
-    <link rel="stylesheet" href="settings.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Profile</title>
+    <style>
+        body { font-family: sans-serif; background-color: #f4f4f4; display: flex; justify-content: center; padding: 20px; }
+        .profile-card { background: white; width: 100%; max-width: 350px; border-radius: 15px; padding: 25px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); text-align: center; }
+        .avatar { width: 80px; height: 80px; background: #1da1f2; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; margin: 0 auto 20px; }
+        .info-row { display: flex; justify-content: space-between; border-bottom: 1px solid #eee; padding: 12px 0; font-size: 14px; }
+        .label { color: #888; }
+        .value { color: #000; font-weight: bold; }
+        .logout-btn { background: #ff4d4d; color: white; border: none; width: 100%; padding: 12px; border-radius: 8px; margin-top: 25px; cursor: pointer; font-size: 16px; display: flex; align-items: center; justify-content: center; gap: 10px; }
+    </style>
 </head>
 <body>
 
-    <header class="settings-header">
-        <a href="home.html" class="back-btn">←</a>
-        <h1>Profile</h1>
-    </header>
-
     <div class="profile-card">
-        <div class="avatar-circle">A</div>
-
-        <div class="info-group">
-            <div class="info-row">
-                <span class="label">Name</span>
-                <span class="value">Abhi</span>
-            </div>
-            <div class="info-row">
-                <span class="label">Age</span>
-                <span class="value">18</span>
-            </div>
-            <div class="info-row">
-                <span class="label">Gender</span>
-                <span class="value">Male</span>
-            </div>
-            <div class="info-row">
-                <span class="label">Email</span>
-                <span class="value email">abhishekp09765@gmail.com</span>
-            </div>
-            <div class="info-row">
-                <span class="label">Weight GL</span>
-                <span class="value">Not set</span>
-            </div>
+        <div class="avatar" id="initial">A</div>
+        
+        <div class="info-row">
+            <span class="label">Name</span>
+            <span class="value" id="disp-name"></span>
+        </div>
+        <div class="info-row">
+            <span class="label">Age</span>
+            <span class="value" id="disp-age"></span>
+        </div>
+        <div class="info-row">
+            <span class="label">Gender</span>
+            <span class="value" id="disp-gender"></span>
+        </div>
+        <div class="info-row">
+            <span class="label">Email</span>
+            <span class="value" id="disp-email"></span>
         </div>
 
-        <button id="logout-btn" class="logout-button">
-            <span> logout</span> Log Out
+        <button class="logout-btn" onclick="logout()">
+            <span>Logout</span>
         </button>
     </div>
 
-    <script src="settings.js"></script>
+    <script>
+        // ലോഗിൻ സമയത്ത് നൽകിയ വിവരങ്ങൾ ഇവിടെ കാണിക്കുന്നു
+        document.getElementById('disp-name').innerText = localStorage.getItem('userName') || "Not set";
+        document.getElementById('disp-age').innerText = localStorage.getItem('userAge') || "Not set";
+        document.getElementById('disp-gender').innerText = localStorage.getItem('userGender') || "Not set";
+        document.getElementById('disp-email').innerText = localStorage.getItem('userEmail') || "Not set";
+        
+        // ആദ്യത്തെ അക്ഷരം ലോഗോയിൽ കാണിക്കാൻ
+        const name = localStorage.getItem('userName');
+        if(name) document.getElementById('initial').innerText = name.charAt(0).toUpperCase();
+
+        function logout() {
+            localStorage.clear(); // വിവരങ്ങൾ നീക്കം ചെയ്യുന്നു
+            window.location.href = 'login.html'; // തിരികെ ലോഗിൻ പേജിലേക്ക്
+        }
+    </script>
 </body>
 </html>
