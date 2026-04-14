@@ -1,10 +1,9 @@
 /* ===== BODY ===== */
 body {
-    background: #f8fafc;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #ffffff;
+    font-family: 'Inter', sans-serif;
     margin: 0;
-    padding-bottom: 120px;
-    color: #334155;
+    color: #1e293b;
 }
 
 /* ===== HEADER ===== */
@@ -12,77 +11,78 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: white;
     padding: 15px 20px;
-    position: sticky;
-    top: 0;
-    z-index: 100;
+    background: white;
 }
 
 header h1 {
     font-size: 22px;
     font-weight: 700;
-    color: #0284c7;
+    color: #0ea5e9; /* blue shade */
 }
 
 /* Settings icon */
 .settings-icon {
-    width: 24px;
-    height: 24px;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
     border: 2px solid #e2e8f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ===== LINE ===== */
+.divider {
+    height: 1px;
+    background: #e2e8f0;
 }
 
 /* ===== SEARCH ===== */
 .search-container {
-    background: white;
-    padding: 10px 20px 15px;
+    padding: 15px 20px;
 }
 
-#search-input {
-    width: 100%;
-    padding: 14px 18px;
-    border-radius: 14px;
-    border: none;
+.search-box {
+    display: flex;
+    align-items: center;
     background: #f1f5f9;
+    padding: 12px 15px;
+    border-radius: 15px;
+}
+
+.search-box input {
+    border: none;
     outline: none;
+    background: transparent;
+    margin-left: 10px;
+    width: 100%;
     font-size: 14px;
 }
 
-/* ===== CATEGORY TABS ===== */
+/* ===== CATEGORY ===== */
 .category-tabs {
-    display: flex;
-    gap: 10px;
     padding: 10px 20px;
-    overflow-x: auto;
-    background: white;
-}
-
-.category-tabs::-webkit-scrollbar {
-    display: none;
 }
 
 .tab {
-    padding: 8px 18px;
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 12px;
     background: #f1f5f9;
-    border-radius: 10px;
-    font-size: 14px;
-    color: #64748b;
-    white-space: nowrap;
+    font-weight: 600;
 }
 
 .tab.active {
     background: white;
-    color: #334155;
-    font-weight: 600;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
-/* ===== PRODUCT GRID ===== */
+/* ===== PRODUCTS GRID ===== */
 .products-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 14px;
+    gap: 15px;
     padding: 15px;
 }
 
@@ -94,65 +94,23 @@ header h1 {
     border: 1px solid #f1f5f9;
 }
 
-/* ===== IMAGE WRAPPER ===== */
+/* ===== IMAGE ===== */
 .image-wrapper {
     position: relative;
 }
 
-/* Product image */
 .product-card img {
     width: 100%;
     height: 130px;
-    object-fit: cover;
     border-radius: 12px;
+    object-fit: cover;
 }
 
-/* ===== SELECT BUTTON (TOP RIGHT CIRCLE) ===== */
+/* ===== SELECT BUTTON ===== */
 .select-btn {
     position: absolute;
     top: 8px;
     right: 8px;
     width: 28px;
     height: 28px;
-    background: white;
     border-radius: 50%;
-    border: 2px solid #e2e8f0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 14px;
-    color: white;
-    cursor: pointer;
-    transition: 0.2s;
-}
-
-/* When selected (✔️) */
-.select-btn.active {
-    background: #0284c7;
-    border-color: #0284c7;
-    color: white;
-}
-
-.select-btn.active::after {
-    content: "✔";
-    font-size: 14px;
-}
-
-/* ===== PRODUCT INFO ===== */
-.product-info h3 {
-    margin: 8px 0 2px;
-    font-size: 15px;
-    font-weight: 600;
-}
-
-.product-category {
-    font-size: 12px;
-    color: #94a3b8;
-}
-
-.product-price {
-    color: #0284c7;
-    font-weight: 700;
-    font-size: 15px;
-    margin-top: 5px;
-}
