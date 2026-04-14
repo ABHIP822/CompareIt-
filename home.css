@@ -1,62 +1,57 @@
-/* ===== GLOBAL STYLES ===== */
+/* ===== GLOBAL ===== */
 body {
-    background-color: #ffffff;
+    background-color: #f8fafc;
     font-family: 'Inter', -apple-system, sans-serif;
     margin: 0;
     padding: 0;
     color: #1e293b;
 }
 
-/* ===== HEADER SECTION ===== */
+/* ===== HEADER ===== */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 20px;
-    background: #fff;
+    padding: 15px 18px;
+    background: #ffffff;
 }
 
 header h1 {
     font-size: 26px;
     font-weight: 800;
-    color: #00a0e3; /* ബ്രൈറ്റ് നീല നിറം */
+    color: #00a0e3;
     margin: 0;
-    letter-spacing: -0.5px;
 }
 
-/* ബ്ലാക്ക് സെറ്റിംഗ്സ് ഐക്കൺ */
 .settings-icon {
-    width: 24px;
-    height: 24px;
-    color: #000000; /* കറുപ്പ് നിറം */
-    cursor: pointer;
+    width: 26px;
+    height: 26px;
+    color: #000;
 }
 
-/* ഹെഡറിന് താഴെയുള്ള ലൈൻ */
+/* Divider */
 .header-divider {
     height: 1px;
-    background-color: #e2e8f0;
-    width: 100%;
+    background: #e2e8f0;
 }
 
-/* ===== SEARCH BAR SECTION ===== */
+/* ===== SEARCH ===== */
 .search-container {
-    padding: 15px 20px;
+    padding: 15px;
 }
 
 .search-box {
     display: flex;
     align-items: center;
     background: #ffffff;
-    border: 1.5px solid #e2e8f0;
-    padding: 12px 18px;
-    border-radius: 15px;
+    border-radius: 18px;
+    padding: 12px 16px;
+    border: 1px solid #e2e8f0;
 }
 
-/* Search Icon and Text Style */
 .search-box i {
     color: #94a3b8;
-    margin-right: 12px;
+    margin-right: 10px;
 }
 
 .search-box input {
@@ -64,118 +59,156 @@ header h1 {
     outline: none;
     width: 100%;
     font-size: 15px;
-    color: #64748b;
 }
 
-/* ===== ALL FOOD OPTION (Shaded) ===== */
+/* ===== CATEGORY ===== */
 .category-section {
-    padding: 10px 20px;
+    padding: 10px 15px;
 }
 
 .all-food-btn {
     display: inline-block;
-    padding: 10px 25px;
-    background: #f1f5f9; /* ഷേഡഡ് ബാക്ക്ഗ്രൗണ്ട് */
-    border-radius: 12px;
+    padding: 8px 20px;
+    background: #f1f5f9;
+    border-radius: 20px;
     font-weight: 700;
-    color: #000000; /* ബ്ലാക്ക് ടെക്സ്റ്റ് */
-    font-size: 15px;
-    cursor: pointer;
+    font-size: 14px;
 }
 
-/* ===== PRODUCTS GRID (Left & Right) ===== */
+/* ===== PRODUCT GRID ===== */
 .product-list-container {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* ലെഫ്റ്റും റൈറ്റും പ്രോഡക്റ്റുകൾ */
-    gap: 15px;
-    padding: 20px;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    padding: 15px;
 }
 
-/* ===== PRODUCT CARD ===== */
+/* ===== CARD ===== */
 .product-card {
-    background: #fff;
+    background: #ffffff;
     border-radius: 20px;
-    padding: 12px;
-    border: 1px solid #f1f5f9;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    padding: 10px;
     position: relative;
-    display: flex;
-    flex-direction: column;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.05);
+    transition: 0.2s;
 }
 
-/* Product Image */
+.product-card:hover {
+    transform: scale(1.02);
+}
+
+/* IMAGE */
 .product-card img {
     width: 100%;
-    height: 140px;
-    border-radius: 15px;
+    height: 130px;
     object-fit: cover;
-    margin-bottom: 10px;
+    border-radius: 16px;
 }
 
-/* Selection Circle (Top Right) */
-.select-option {
-    position: absolute;
-    top: 18px;
-    right: 18px;
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.9);
-    border: 2px solid #e2e8f0;
-    cursor: pointer;
-}
-
-/* Product Details (Name, Grade/Guide) */
+/* TEXT */
 .product-name {
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 700;
-    color: #1e293b;
-    margin-bottom: 4px;
+    margin-top: 8px;
 }
 
 .product-grade {
     font-size: 13px;
-    color: #94a3b8; /* ഗ്രേഡ് ഷേഡ് */
-    margin-bottom: 6px;
+    color: #64748b;
 }
 
-/* ===== PRODUCT DETAILS PAGE (Full Detail View) ===== */
+/* ===== SELECT BUTTON ===== */
+.select-option {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 2px solid #e2e8f0;
+    cursor: pointer;
+}
+
+/* ACTIVE SELECT (BLUE TICK STYLE) */
+.select-option.active {
+    background: #00a0e3;
+    border: none;
+}
+
+/* ===== COMPARE BAR ===== */
+.compare-bar {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: #00a0e3;
+    color: white;
+    text-align: center;
+    padding: 14px;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+/* ===== DETAIL VIEW ===== */
 .detail-view {
     padding: 20px;
-    text-align: center;
 }
 
 .detail-view img {
-    width: 90%;
-    border-radius: 25px;
-    margin: 0 auto;
+    width: 100%;
+    border-radius: 20px;
 }
 
 .detail-info-box {
-    text-align: left;
-    margin-top: 20px;
+    margin-top: 15px;
+    background: #fff;
     padding: 15px;
+    border-radius: 15px;
 }
 
-/* ===== COMPARISON PAGE (VS Layout) ===== */
+/* ===== COMPARE PAGE ===== */
 .compare-wrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 30px 10px;
+    padding: 25px;
+    background: #f8fafc;
+}
+
+.compare-wrapper div {
+    text-align: center;
+    width: 40%;
+}
+
+.compare-wrapper img {
+    width: 100px;
+    border-radius: 12px;
 }
 
 .vs-divider {
-    font-weight: 900;
     font-size: 20px;
-    color: #cbd5e1;
-    padding: 0 10px;
+    font-weight: 900;
+    color: #94a3b8;
 }
 
-/* Comparison Detail Row */
+/* ===== COMPARE DETAILS ===== */
 .compare-row {
     display: flex;
     justify-content: space-between;
-    padding: 12px 0;
-    border-bottom: 1px solid #f1f5f9;
+    padding: 12px 15px;
+    background: #ffffff;
+    margin: 8px 12px;
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 480px) {
+    .product-card img {
+        height: 110px;
+    }
+
+    header h1 {
+        font-size: 22px;
+    }
 }
