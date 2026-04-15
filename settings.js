@@ -1,43 +1,30 @@
-   <div class="profile-card">
-‎        <div class="avatar" id="initial">A</div>
-‎
-‎        <div class="info-row">
-‎            <span class="label">Name</span>
-‎            <span class="value" id="disp-name"></span>
-‎        </div>
-‎        <div class="info-row">
-‎            <span class="label">Age</span>
-‎            <span class="value" id="disp-age"></span>
-‎        </div>
-‎        <div class="info-row">
-‎            <span class="label">Gender</span>
-‎            <span class="value" id="disp-gender"></span>
-‎        </div>
-‎        <div class="info-row">
-‎            <span class="label">Email</span>
-‎            <span class="value" id="disp-email"></span>
-‎        </div>
-‎
-‎        <button class="logout-btn" onclick="logout()">
-‎            <span>Logout</span>
-‎        </button>
-‎    </div>
-‎
-‎    <script>
-‎        // ലോഗിൻ സമയത്ത് നൽകിയ വിവരങ്ങൾ ഇവിടെ കാണിക്കുന്നു
-‎        document.getElementById('disp-name').innerText = localStorage.getItem('userName') || "Not set";
-‎        document.getElementById('disp-age').innerText = localStorage.getItem('userAge') || "Not set";
-‎        document.getElementById('disp-gender').innerText = localStorage.getItem('userGender') || "Not set";
-‎        document.getElementById('disp-email').innerText = localStorage.getItem('userEmail') || "Not set";
-‎
-‎        // ആദ്യത്തെ അക്ഷരം ലോഗോയിൽ കാണിക്കാൻ
-‎        const name = localStorage.getItem('userName');
-‎        if(name) document.getElementById('initial').innerText = name.charAt(0).toUpperCase();
-‎
-‎        function logout() {
-‎            localStorage.clear(); // വിവരങ്ങൾ നീക്കം ചെയ്യുന്നു
-‎            window.location.href = 'login.html'; // തിരികെ ലോഗിൻ പേജിലേക്ക്
-‎        }
-‎    </script>
-‎</body>
-‎</html>
+document.addEventListener('DOMContentLoaded', function() {
+    // ലോക്കൽ സ്റ്റോറേജിൽ നിന്ന് യൂസർ ഡാറ്റ എടുക്കുന്നു
+    const userData = JSON.parse(localStorage.getItem('user'));
+
+    if (userData) {
+        document.getElementById('display-name').innerText = userData.name;
+
+        // ഗസ്റ്റ് അക്കൗണ്ട് ആണോ എന്ന് പരിശോധിക്കുന്നു
+        if (userData.age === 'N/A' || !userData.age) {
+            // ഗസ്റ്റ് ആണെങ്കിൽ ബാക്കി വിവരങ്ങൾ മറച്ചു വെക്കുന്നു
+            document.getElementById('extra-details').style.display = 'none';
+        } else {
+            // ലോഗിൻ ചെയ്ത യൂസർ ആണെങ്കിൽ വിവരങ്ങൾ കാണിക്കുന്നു
+            document.getElementById('display-age').innerText = userData.age;
+            document.getElementById('display-gender').innerText = userData.gender;
+            document.getElementById('display-email').innerText = userData.email;
+        }
+    } else {
+        // ഡാറ്റ ഒന്നുമില്ലെങ്കിൽ ലോഗിൻ പേജിലേക്ക് വിടുന്നു
+        window.location.href = "login.html";
+    }
+});
+
+// ലോഗൗട്ട് ഫംഗ്ഷൻ
+function handleLogout() {
+    if (confirm("Are you sure you want to logout?")) {
+        // ലോഗിൻ പേജിലേക്ക് പോകുന്നു (യൂസർ ഡാറ്റ ക്ലിയർ ചെയ്യണമെങ്കിൽ localStorage.removeItem('user') ചേർക്കാം)
+        window.location.href = "login.html"; 
+    }
+}
