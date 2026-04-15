@@ -1,40 +1,19 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     background-color: #f8f9fa;
     margin: 0;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-}
-
-.settings-header {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    padding: 15px;
-    background: white;
-    border-bottom: 1px solid #ddd;
-}
-
-.back-btn {
-    text-decoration: none;
-    font-size: 24px;
-    color: black;
-    margin-right: 20px;
-}
-
-.settings-header h1 {
-    font-size: 20px;
-    margin: 0;
+    height: 100vh;
 }
 
 .profile-card {
     background: white;
     width: 90%;
-    max-width: 400px;
-    margin-top: 30px;
+    max-width: 380px;
     padding: 30px 20px;
-    border-radius: 15px;
+    border-radius: 20px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
     text-align: center;
 }
@@ -51,17 +30,18 @@ body {
     justify-content: center;
     align-items: center;
     margin: 0 auto 30px;
+    text-transform: uppercase;
 }
 
 .info-group {
     text-align: left;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .info-row {
     display: flex;
     justify-content: space-between;
-    padding: 12px 0;
+    padding: 15px 0;
     border-bottom: 1px solid #f0f0f0;
 }
 
@@ -73,10 +53,7 @@ body {
 .value {
     font-weight: bold;
     color: #333;
-}
-
-.email {
-    font-size: 13px;
+    font-size: 15px;
 }
 
 .logout-button {
@@ -84,8 +61,8 @@ body {
     background-color: #ff4d4d;
     color: white;
     border: none;
-    padding: 12px;
-    border-radius: 8px;
+    padding: 14px;
+    border-radius: 12px;
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
@@ -93,16 +70,9 @@ body {
     justify-content: center;
     align-items: center;
     gap: 10px;
+    transition: background 0.3s;
 }
 
 .logout-button:active {
     background-color: #e60000;
 }
-
-document.getElementById('logout-btn').addEventListener('click', function() {
-    const confirmLogout = confirm("Are you sure you want to log out?");
-    if (confirmLogout) {
-        // ലോഗ് ഔട്ട് ചെയ്ത ശേഷം ഹോം പേജിലേക്ക് പോകുന്നു
-        window.location.href = "home.html"; 
-    }
-});
